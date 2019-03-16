@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Video Game Review Tags</title>
+	<link rel= "stylesheet" type= "text/css" href = "./style.css" th:href= "@{css/style.css}">
+</head>
+
+
+<body>
+	<header>
+	<h1 id="categoriesTitle">Video Game Tags:</h1>
+	</header>
+	
+	<div th:id= "categories" th:each ="tag: ${tags}">
+		<h2>
+		<a th:href="@{/tag(id=${tag.id})}" th:text="${tag.name}"></a>
+		</h2>
+	</div>
+
+	<footer><a href ="http://localhost:8080/show-reviews">Back to Reviews Home</a> </footer>
+
+</body>
+</html>

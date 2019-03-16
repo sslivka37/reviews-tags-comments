@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title >Video Game Reviews-Home Page</title>
+	<link rel= "stylesheet" type= "text/css" href = "./style.css" th:href= "@{css/style.css}">
+</head>
+<body>	
+	<h1 id = "homePage">Sarah's Top Five Video Games OF ALL TIME</h1>
+	<img th:src="@{/images/controller.jpg}" class= "center"/>
+	
+	<div th:id = "eachReview" th:each="review: ${reviews}" >
+		<p><a th:href="@{/review(id=${review.id})}" th:text="${review.name}"></a></p>
+	</div>
+	
+	<form method ="GET">
+	<div>
+	<label>Enter Tag Name:</label>
+	<input type="text" name="tagName"/>	
+	</div>
+	
+	<div>
+	<button th:formaction="@{find-by-tag}">Find Reviews</button>
+	</div>
+	
+	
+	
+	
+	</form>
+	
+	<section id = "aboutMe">
+		<h2>About Me</h2>
+		<p>Here's a little information about me as a person:</p>
+		<div id ="information">
+			<article>
+				<h3>Name</h3>
+				<p>Sarah Slivka</p>
+			</article>				
+			<article>
+				<h3>Location</h3>
+				<p>I was born and raised in Cleveland, Ohio!</p>
+			</article>				
+			<article>
+				<h3>Hobbies</h3>
+				<p>I enjoy video games (obviously), becoming an Otamotone savant, and sampling local vegan fare</p>
+			</article>
+			</div>
+	</section>
+
+	<footer><a href= http://localhost:8080/show-tags>Show Tags</a></footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Video Game Review</title>
+	<link rel= "stylesheet" type= "text/css" href = "./style.css" th:href= "@{css/style.css}">
+</head>
+<body>
+	<h1>The Review:</h1>
+	
+	
+	<p>Tags Associated With This Review:</p>
+	<ul class="tags">
+                <li class="tags__item" th:each="tag: ${reviews.tags}">
+                    <a th:href="@{/tag(id=${tag.id})}" th:text="${tag.name}"></a>
+                </li>
+            </ul>
+
+
+
+
+	<div th:id="individualReview" th:each= "review: ${reviews}">		
+		 
+		<p th:id="individualReviewName" th:text = "${review.name}"></p>
+		<p th:id="individualReviewContent" th:text = "${review.content}"></p>
+		<img th:src="@{'/images/' + ${review.url} + '.jpg'}" style="width:700px;height:500px;"  class = "center"/>
+				
+	</div>
+	
+	
+        
+	
+	
+	
+		
+		<footer>
+		<a href ="http://localhost:8080/show-reviews">Back to Reviews Home</a>
+		<a href ="http://localhost:8080/show-categories">Back to Categories Home</a>
+		
+		</footer>
+
+
+	
+
+</body>
+</html>
